@@ -186,5 +186,6 @@ export interface RegisterData {
   userName: string;
   password: string;
   userType: UserType;
+  educationLevel: string;
   agreeToTerms: boolean;
 }
