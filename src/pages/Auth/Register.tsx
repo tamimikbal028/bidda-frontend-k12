@@ -35,7 +35,7 @@ const registerSchema = z.object({
   userType: z.enum([USER_TYPES.STUDENT, USER_TYPES.TEACHER], {
     message: "User Type is required",
   }),
-  
+
   educationLevel: z.enum([EDUCATION_LEVELS.UNIVERSITY, EDUCATION_LEVELS.K12], {
     message: "Education Level is required",
   }),
@@ -63,8 +63,8 @@ const Register = () => {
       email: "",
       userName: "",
       password: "",
-      userType: undefined as any,
-      educationLevel: undefined as any,
+      userType: undefined,
+      educationLevel: undefined,
       agreeToTerms: undefined,
     },
   });
@@ -195,13 +195,15 @@ const Register = () => {
                   {errors.userType.message}
                 </p>
               )}
+            </div>
+
             {/* Education Level Field */}
             <div>
               <label
                 htmlFor="educationLevel"
                 className="mb-2 block text-sm font-medium text-gray-700"
               >
-                Education Level
+                I study in
               </label>
               <select
                 id="educationLevel"
@@ -214,7 +216,9 @@ const Register = () => {
               >
                 <option value="">Select education level</option>
                 <option value={EDUCATION_LEVELS.UNIVERSITY}>University</option>
-                <option value={EDUCATION_LEVELS.K12}>K2 (School/College)</option>
+                <option value={EDUCATION_LEVELS.K12}>
+                  K12 (School / College)
+                </option>
               </select>
               {errors.educationLevel && (
                 <p className="mt-1 text-sm text-red-500">
