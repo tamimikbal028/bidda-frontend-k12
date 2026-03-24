@@ -98,7 +98,7 @@ const OpenDiscussion = () => {
 
       {/* Footer info */}
       <div className="border-t border-gray-100 bg-gray-50 px-8 py-4 text-center text-sm font-medium text-gray-400">
-        SocialHub Open Discussion Engine v1.0 Preview
+        Open Study Discussion Engine v1.0 Preview
       </div>
     </div>
   );

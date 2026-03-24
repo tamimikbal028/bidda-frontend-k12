@@ -18,6 +18,11 @@ export const GENDERS = {
   FEMALE: "FEMALE",
 };
 
+export const EDUCATION_LEVELS = {
+  UNIVERSITY: "UNIVERSITY",
+  K12: "K12",
+};
+
 export const RELIGIONS = {
   ISLAM: "Islam",
   HINDU: "Hindu",

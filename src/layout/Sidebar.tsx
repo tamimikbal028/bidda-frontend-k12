@@ -218,12 +218,13 @@ const Sidebar = () => {
         to="/"
         className="flex items-center gap-3 border-b border-gray-300 px-2 pb-3"
       >
-        <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shadow-md">
-          <span className="text-2xl font-bold text-white">S</span>
+        <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-green-500 to-teal-500 shadow-md">
+          <span className="text-2xl font-bold text-white">O</span>
         </div>
         <div className="flex flex-col">
-          <span className="text-lg font-semibold text-gray-900">SocialHub</span>
-          <span className="text-sm text-gray-500">Connect & Learn</span>
+          <span className="text-lg font-semibold text-gray-900">
+            Open Study
+          </span>
         </div>
       </NavLink>
 

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import authHooks from "../../hooks/useAuth";
-import { USER_TYPES } from "../../constants";
+import { USER_TYPES, EDUCATION_LEVELS } from "../../constants";
 
 // Zod Schema - matches with Backend validation
 const registerSchema = z.object({
@@ -35,6 +35,10 @@ const registerSchema = z.object({
   userType: z.enum([USER_TYPES.STUDENT, USER_TYPES.TEACHER], {
     message: "User Type is required",
   }),
+  
+  educationLevel: z.enum([EDUCATION_LEVELS.UNIVERSITY, EDUCATION_LEVELS.K12], {
+    message: "Education Level is required",
+  }),
 
   // agreeToTerms: only for Frontend, won't go to Backend
   agreeToTerms: z.literal(true, "You must agree to the terms"),
@@ -59,7 +63,8 @@ const Register = () => {
       email: "",
       userName: "",
       password: "",
-      userType: undefined,
+      userType: undefined as any,
+      educationLevel: undefined as any,
       agreeToTerms: undefined,
     },
   });
@@ -74,7 +79,7 @@ const Register = () => {
     <div className="flex h-screen items-center justify-center space-x-15 overflow-hidden">
       {/* Header - Left Side */}
       <div className="text-center">
-        <h1 className="mb-2 text-4xl font-bold text-gray-900">SocialHub</h1>
+        <h1 className="mb-2 text-4xl font-bold text-gray-900">Open Study</h1>
         <h2 className="mb-2 text-2xl font-semibold text-gray-700">
           Create Account
         </h2>
@@ -188,6 +193,32 @@ const Register = () => {
               {errors.userType && (
                 <p className="mt-1 text-sm text-red-500">
                   {errors.userType.message}
+                </p>
+              )}
+            {/* Education Level Field */}
+            <div>
+              <label
+                htmlFor="educationLevel"
+                className="mb-2 block text-sm font-medium text-gray-700"
+              >
+                Education Level
+              </label>
+              <select
+                id="educationLevel"
+                {...registerField("educationLevel")}
+                className={`w-full appearance-none rounded-lg border px-3 py-2 transition-colors focus:ring-2 focus:outline-none ${
+                  errors.educationLevel
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                }`}
+              >
+                <option value="">Select education level</option>
+                <option value={EDUCATION_LEVELS.UNIVERSITY}>University</option>
+                <option value={EDUCATION_LEVELS.K12}>K2 (School/College)</option>
+              </select>
+              {errors.educationLevel && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.educationLevel.message}
                 </p>
               )}
             </div>

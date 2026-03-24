@@ -69,7 +69,7 @@ const Login = () => {
     <div className="flex items-center justify-center space-x-15">
       {/* Header - Left Side */}
       <div className="text-center">
-        <h1 className="mb-2 text-4xl font-bold text-gray-900">SocialHub</h1>
+        <h1 className="mb-2 text-4xl font-bold text-gray-900">Open Study</h1>
         <h2 className="mb-2 text-2xl font-semibold text-gray-700">
           Welcome Back
         </h2>
