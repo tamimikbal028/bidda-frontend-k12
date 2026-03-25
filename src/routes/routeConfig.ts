@@ -2,6 +2,7 @@ import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 import Home from "../pages/Home";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
+import { FEATURE_FLAGS } from "../constants/featureFlags";
 
 // Enhanced Route configuration - Industry standard approach
 interface RouteConfig {
@@ -59,7 +60,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/gaming/*",
-    display: import.meta.env.VITE_COMPETITION === "true",
+    display: FEATURE_FLAGS.COMPETITION,
     Component: lazy(() => import("../pages/Gaming/Gaming")),
     requireAuth: true,
     title: "Gaming",
@@ -68,7 +69,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/cr-corner",
-    display: import.meta.env.VITE_CR_CORNER === "true",
+    display: FEATURE_FLAGS.CR_CORNER,
     Component: lazy(() => import("../pages/CRCorner")),
     requireAuth: true,
     title: "CR Corner",
@@ -79,7 +80,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/classroom/*",
-    display: import.meta.env.VITE_CLASSROOM === "true",
+    display: FEATURE_FLAGS.CLASSROOM,
     Component: lazy(() => import("../pages/ClassRoom/ClassRoom")),
     requireAuth: true,
     title: "ClassRoom",
@@ -90,7 +91,7 @@ export const routes: RouteConfig[] = [
   // Institutions routes
   {
     path: "/institutions",
-    display: import.meta.env.VITE_INSTITUTIONS === "true",
+    display: FEATURE_FLAGS.INSTITUTIONS,
     Component: lazy(() => import("../pages/Institution/InstitutionLanding")),
     requireAuth: true,
     title: "Search Institution & Department",
@@ -99,7 +100,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/my-institution",
-    display: import.meta.env.VITE_INSTITUTIONS === "true",
+    display: FEATURE_FLAGS.INSTITUTIONS,
     Component: lazy(
       () => import("../components/Shared/academic/JoinInstDeptPage")
     ),
@@ -110,7 +111,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/institutions/:instId/*",
-    display: import.meta.env.VITE_INSTITUTIONS === "true",
+    display: FEATURE_FLAGS.INSTITUTIONS,
     Component: lazy(() => import("../pages/Institution/InstitutionDetail")),
     requireAuth: true,
     title: "Institution",
@@ -119,7 +120,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/institutions/:instId/edit",
-    display: import.meta.env.VITE_INSTITUTIONS === "true",
+    display: FEATURE_FLAGS.INSTITUTIONS,
     Component: lazy(() => import("../pages/Institution/EditInstitutionPage")),
     requireAuth: true,
     title: "Edit Institution",
@@ -130,7 +131,7 @@ export const routes: RouteConfig[] = [
   // Departments routes
   {
     path: "/departments",
-    display: import.meta.env.VITE_DEPARTMENTS === "true",
+    display: FEATURE_FLAGS.DEPARTMENTS,
     Component: lazy(() => import("../pages/Department/DepartmentLanding")),
     requireAuth: true,
     title: "Search Institution & Department",
@@ -139,7 +140,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/my-department",
-    display: import.meta.env.VITE_DEPARTMENTS === "true",
+    display: FEATURE_FLAGS.DEPARTMENTS,
     Component: lazy(
       () => import("../components/Shared/academic/JoinInstDeptPage")
     ),
@@ -150,7 +151,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/departments/:deptId/*",
-    display: import.meta.env.VITE_DEPARTMENTS === "true",
+    display: FEATURE_FLAGS.DEPARTMENTS,
     Component: lazy(() => import("../pages/Department/DepartmentDetail")),
     requireAuth: true,
     title: "Department",
@@ -159,7 +160,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/departments/:deptId/edit",
-    display: import.meta.env.VITE_DEPARTMENTS === "true",
+    display: FEATURE_FLAGS.DEPARTMENTS,
     Component: lazy(() => import("../pages/Department/EditDepartmentPage")),
     requireAuth: true,
     title: "Edit Department",
@@ -170,7 +171,7 @@ export const routes: RouteConfig[] = [
   // Utility routes
   {
     path: "/search",
-    display: import.meta.env.VITE_SEARCH === "true",
+    display: FEATURE_FLAGS.SEARCH,
     Component: lazy(() => import("../pages/Search")),
     requireAuth: true,
     title: "Search",
@@ -180,7 +181,7 @@ export const routes: RouteConfig[] = [
 
   {
     path: "/files",
-    display: import.meta.env.VITE_FILES === "true",
+    display: FEATURE_FLAGS.FILES,
     Component: lazy(() => import("../pages/FilesAndArchive")),
     requireAuth: true,
     title: "Files & Archive",
@@ -191,7 +192,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/store",
-    display: import.meta.env.VITE_STORE === "true",
+    display: FEATURE_FLAGS.STORE,
     Component: lazy(() => import("../pages/StudentStore")),
     requireAuth: true,
     title: "Store",
@@ -200,7 +201,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/tuition",
-    display: import.meta.env.VITE_TUITION === "true",
+    display: FEATURE_FLAGS.TUITION,
     Component: lazy(() => import("../pages/Tuition")),
     requireAuth: true,
     title: "Tuition",
@@ -211,7 +212,7 @@ export const routes: RouteConfig[] = [
   // Social features
   {
     path: "/groups/*",
-    display: import.meta.env.VITE_GROUPS === "true",
+    display: FEATURE_FLAGS.GROUPS,
     Component: lazy(() => import("../pages/Group/Groups")),
     requireAuth: true,
     title: "Groups",
@@ -220,7 +221,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/groups/:slug/edit",
-    display: import.meta.env.VITE_GROUPS === "true",
+    display: FEATURE_FLAGS.GROUPS,
     Component: lazy(() => import("../pages/Group/EditGroupPage")),
     requireAuth: true,
     title: "Manage Group",
@@ -229,7 +230,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/notifications",
-    display: import.meta.env.VITE_NOTIFICATIONS === "true",
+    display: FEATURE_FLAGS.NOTIFICATIONS,
     Component: lazy(() => import("../pages/Notifications")),
     requireAuth: true,
     title: "Notifications",
@@ -238,7 +239,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/messages",
-    display: import.meta.env.VITE_MESSAGES === "true",
+    display: FEATURE_FLAGS.MESSAGES,
     Component: lazy(() => import("../pages/Messages")),
     requireAuth: true,
     title: "Messages",
@@ -247,7 +248,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/study-helper",
-    display: import.meta.env.VITE_STUDY_HELPER === "true",
+    display: FEATURE_FLAGS.STUDY_HELPER,
     Component: lazy(() => import("../pages/StudyHelperAI")),
     requireAuth: true,
     title: "Study Helper AI",
@@ -256,7 +257,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/open-discussion",
-    display: import.meta.env.VITE_OPEN_DISCUSSION === "true",
+    display: FEATURE_FLAGS.OPEN_DISCUSSION,
     Component: lazy(() => import("../pages/OpenDiscussion")),
     requireAuth: true,
     title: "Open Discussion",
@@ -265,7 +266,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/career-hub",
-    display: import.meta.env.VITE_CAREER_HUB === "true",
+    display: FEATURE_FLAGS.CAREER_HUB,
     Component: lazy(() => import("../pages/CareerHub")),
     requireAuth: true,
     title: "Career Hub",
@@ -274,7 +275,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/saved",
-    display: import.meta.env.VITE_SAVED === "true",
+    display: FEATURE_FLAGS.SAVED,
     Component: lazy(() => import("../pages/Saved")),
     requireAuth: true,
     title: "Saved",
@@ -283,7 +284,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/friends/*",
-    display: import.meta.env.VITE_FRIENDS === "true",
+    display: FEATURE_FLAGS.FRIENDS,
     Component: lazy(() => import("../pages/Friends")),
     requireAuth: true,
     title: "Friends",
@@ -292,7 +293,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/videos",
-    display: import.meta.env.VITE_VIDEOS === "true",
+    display: FEATURE_FLAGS.VIDEOS,
     Component: lazy(() => import("../pages/Videos")),
     requireAuth: true,
     title: "Videos",
@@ -303,7 +304,7 @@ export const routes: RouteConfig[] = [
   // Profile routes
   {
     path: "/profile/:username",
-    display: import.meta.env.VITE_PROFILE === "true",
+    display: FEATURE_FLAGS.PROFILE,
     Component: lazy(() => import("../pages/Profile/Profile")),
     requireAuth: true,
     title: "User Profile",
@@ -312,7 +313,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/profile/edit",
-    display: import.meta.env.VITE_PROFILE === "true",
+    display: FEATURE_FLAGS.PROFILE,
     Component: lazy(() => import("../pages/Profile/ProfileEdit")),
     requireAuth: true,
     title: "Edit Profile",
@@ -321,7 +322,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/profile/:username/details",
-    display: import.meta.env.VITE_PROFILE === "true",
+    display: FEATURE_FLAGS.PROFILE,
     Component: lazy(() => import("../pages/Profile/ProfileDetails")),
     requireAuth: true,
     title: "User Profile Details",
@@ -332,7 +333,7 @@ export const routes: RouteConfig[] = [
   // Settings routes
   {
     path: "/settings",
-    display: import.meta.env.VITE_SETTINGS === "true",
+    display: FEATURE_FLAGS.SETTINGS,
     Component: lazy(() => import("../pages/Settings")),
     requireAuth: true,
     title: "Settings",
@@ -343,7 +344,7 @@ export const routes: RouteConfig[] = [
   // More routes
   {
     path: "/more",
-    display: import.meta.env.VITE_MORE === "true",
+    display: FEATURE_FLAGS.MORE,
     Component: lazy(() => import("../pages/MainMore")),
     requireAuth: true,
     title: "More",
@@ -352,7 +353,7 @@ export const routes: RouteConfig[] = [
   },
   {
     path: "/more/blood-donation",
-    display: import.meta.env.VITE_BLOOD_DONATION === "true",
+    display: FEATURE_FLAGS.BLOOD_DONATION,
     Component: lazy(() => import("../pages/MainMore/BloodDonation")),
     requireAuth: true,
     title: "Blood Donation",

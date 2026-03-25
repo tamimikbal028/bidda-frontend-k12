@@ -26,6 +26,7 @@ import { CgMoreVerticalO } from "react-icons/cg";
 import { BsStars } from "react-icons/bs";
 import authHooks from "../hooks/useAuth";
 import { useState } from "react";
+import { FEATURE_FLAGS } from "../constants";
 
 interface SidebarProps {
   isMobile?: boolean;
@@ -50,56 +51,56 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
   const navigationItems = [
     {
       icon: FaTrophy,
-      display: import.meta.env.VITE_COMPETITION === "true",
+      display: FEATURE_FLAGS.COMPETITION,
       label: "Competition",
       path: "/gaming",
       active: location.pathname.startsWith("/gaming"),
     },
     {
       icon: FaComments,
-      display: import.meta.env.VITE_OPEN_DISCUSSION === "true",
+      display: FEATURE_FLAGS.OPEN_DISCUSSION,
       label: "Open Study",
       path: "/open-discussion",
       active: location.pathname.startsWith("/open-discussion"),
     },
     {
       icon: FaSchool,
-      display: import.meta.env.VITE_CLASSROOM === "true",
+      display: FEATURE_FLAGS.CLASSROOM,
       label: "ClassRoom",
       path: "/classroom",
       active: location.pathname.startsWith("/classroom"),
     },
     {
       icon: FaFolder,
-      display: import.meta.env.VITE_FILES === "true",
+      display: FEATURE_FLAGS.FILES,
       label: "Files & Archive",
       path: "/files",
       active: location.pathname.startsWith("/files"),
     },
     {
       icon: FaEnvelope,
-      display: import.meta.env.VITE_MESSAGES === "true",
+      display: FEATURE_FLAGS.MESSAGES,
       label: "Messages",
       path: "/messages",
       active: location.pathname.startsWith("/messages"),
     },
     {
       icon: FaLayerGroup,
-      display: import.meta.env.VITE_GROUPS === "true",
+      display: FEATURE_FLAGS.GROUPS,
       label: "Groups",
       path: "/groups",
       active: location.pathname.startsWith("/groups"),
     },
     {
       icon: FaSearch,
-      display: import.meta.env.VITE_SEARCH === "true",
+      display: FEATURE_FLAGS.SEARCH,
       label: "Search",
       path: "/search",
       active: location.pathname.startsWith("/search"),
     },
     {
       icon: FaUniversity,
-      display: import.meta.env.VITE_INSTITUTIONS === "true",
+      display: FEATURE_FLAGS.INSTITUTIONS,
       label: "Institutions",
       isExpandable: true,
       isOpen: isInstitutionOpen,
@@ -126,7 +127,7 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
     },
     {
       icon: FaGraduationCap,
-      display: import.meta.env.VITE_DEPARTMENTS === "true",
+      display: FEATURE_FLAGS.DEPARTMENTS,
       label: "Departments",
       isExpandable: true,
       isOpen: isDepartmentOpen,
@@ -153,14 +154,14 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
     },
     {
       icon: FaUserFriends,
-      display: import.meta.env.VITE_FRIENDS === "true",
+      display: FEATURE_FLAGS.FRIENDS,
       label: "Friends",
       path: "/friends",
       active: location.pathname.startsWith("/friends"),
     },
     {
       icon: FaBell,
-      display: import.meta.env.VITE_NOTIFICATIONS === "true",
+      display: FEATURE_FLAGS.NOTIFICATIONS,
       label: "Notifications",
       path: "/notifications",
       active: location.pathname.startsWith("/notifications"),
@@ -168,49 +169,49 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
     },
     {
       icon: BsStars,
-      display: import.meta.env.VITE_STUDY_HELPER === "true",
+      display: FEATURE_FLAGS.STUDY_HELPER,
       label: "Study Helper AI",
       path: "/study-helper",
       active: location.pathname.startsWith("/study-helper"),
     },
     {
       icon: FaBriefcase,
-      display: import.meta.env.VITE_CAREER_HUB === "true",
+      display: FEATURE_FLAGS.CAREER_HUB,
       label: "Career Hub",
       path: "/career-hub",
       active: location.pathname.startsWith("/career-hub"),
     },
     {
       icon: FaStore,
-      display: import.meta.env.VITE_STORE === "true",
+      display: FEATURE_FLAGS.STORE,
       label: "Student Store",
       path: "/store",
       active: location.pathname.startsWith("/store"),
     },
     {
       icon: FaChalkboardTeacher,
-      display: import.meta.env.VITE_TUITION === "true",
+      display: FEATURE_FLAGS.TUITION,
       label: "Tuition",
       path: "/tuition",
       active: location.pathname.startsWith("/tuition"),
     },
     {
       icon: FaVideo,
-      display: import.meta.env.VITE_VIDEOS === "true",
+      display: FEATURE_FLAGS.VIDEOS,
       label: "Videos",
       path: "/videos",
       active: location.pathname.startsWith("/videos"),
     },
     {
       icon: CgMoreVerticalO,
-      display: import.meta.env.VITE_MORE === "true",
+      display: FEATURE_FLAGS.MORE,
       label: "More",
       path: "/more",
       active: location.pathname.startsWith("/more"),
     },
     {
       icon: FaCog,
-      display: import.meta.env.VITE_SETTINGS === "true",
+      display: FEATURE_FLAGS.SETTINGS,
       label: "Settings",
       path: "/settings",
       active: location.pathname.startsWith("/settings"),
@@ -347,7 +348,7 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
       </div>
 
       {/* Profile & Logout Section */}
-      {import.meta.env.VITE_PROFILE === "true" && (
+      {FEATURE_FLAGS.PROFILE && (
         <div className="border-t border-gray-300 pt-3">
           <div className="flex items-center gap-2">
             <NavLink
