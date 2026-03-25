@@ -84,10 +84,10 @@ api.interceptors.response.use(
       // Login/Register failure is user error, not token issue
       // current-user fail means user is not logged in, no use trying refresh
       const skipRefreshUrls = [
-        "/users/login",
-        "/users/register",
-        "/users/refresh-token",
-        "/users/current-user", // 401 expected if logged out
+        "/auth/login",
+        "/auth/register",
+        "/auth/refresh-token",
+        "/auth/current-user", // 401 expected if logged out
       ];
       if (skipRefreshUrls.some((url) => originalRequest.url?.includes(url))) {
         return Promise.reject(error);
@@ -109,7 +109,7 @@ api.interceptors.response.use(
       try {
         // Try to refresh the token
         // Backend will set new access token in cookie
-        await api.post("/users/refresh-token");
+        await api.post("/auth/refresh-token");
         processQueue(null);
 
         // Refresh successful! Try original request again

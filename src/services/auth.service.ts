@@ -7,7 +7,7 @@ import type {
 } from "../types";
 
 const register = async (userData: RegisterData): Promise<AuthResponse> => {
-  const response = await api.post<AuthResponse>("/users/register", userData);
+  const response = await api.post<AuthResponse>("/auth/register", userData);
   return response.data;
 };
 
@@ -16,22 +16,22 @@ const login = async (credentials: LoginCredentials): Promise<AuthResponse> => {
     ? { email: credentials.email, password: credentials.password }
     : { userName: credentials.email, password: credentials.password };
 
-  const response = await api.post<AuthResponse>("/users/login", payload);
+  const response = await api.post<AuthResponse>("/auth/login", payload);
   return response.data;
 };
 
 const logout = async (): Promise<ApiResponse<null>> => {
-  const response = await api.post<ApiResponse<null>>("/users/logout");
+  const response = await api.post<ApiResponse<null>>("/auth/logout");
   return response.data;
 };
 
 const getCurrentUser = async (): Promise<AuthResponse> => {
-  const response = await api.get<AuthResponse>("/users/current-user");
+  const response = await api.get<AuthResponse>("/auth/current-user");
   return response.data;
 };
 
 const refreshToken = async (): Promise<AuthResponse> => {
-  const response = await api.post<AuthResponse>("/users/refresh-token");
+  const response = await api.post<AuthResponse>("/auth/refresh-token");
   return response.data;
 };
 
@@ -40,7 +40,7 @@ const changePassword = async (data: {
   newPassword: string;
 }): Promise<ApiResponse<null>> => {
   const response = await api.post<ApiResponse<null>>(
-    "/users/change-password",
+    "/auth/change-password",
     data
   );
   return response.data;
