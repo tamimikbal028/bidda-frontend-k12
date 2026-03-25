@@ -17,7 +17,7 @@ const getProfileHeader = async (username: string) => {
 
 const getProfileDetails = async (username: string) => {
   const response = await api.get<ApiResponse<ProfileDetailsData>>(
-    `/profile/details/${username}`
+    `/profile/${username}/details`
   );
   return response.data;
 };
@@ -64,7 +64,9 @@ const getProfilePosts = async (username: string, page: number) => {
 };
 
 const removeAcademic = async () => {
-  const response = await api.delete<ApiResponse<null>>("/profile/remove-academic");
+  const response = await api.delete<ApiResponse<null>>(
+    "/profile/remove-academic"
+  );
   return response.data;
 };
 
