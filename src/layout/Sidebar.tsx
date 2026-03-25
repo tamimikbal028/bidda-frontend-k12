@@ -52,7 +52,7 @@ const Sidebar = () => {
     {
       icon: FaComments,
       display: import.meta.env.VITE_OPEN_DISCUSSION === "true",
-      label: "Open Discussion",
+      label: "Open Study",
       path: "/open-discussion",
       active: location.pathname.startsWith("/open-discussion"),
     },
