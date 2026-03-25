@@ -20,13 +20,19 @@ import {
   FaChevronUp,
   FaCompass,
   FaEnvelope,
+  FaTimes,
 } from "react-icons/fa";
 import { CgMoreVerticalO } from "react-icons/cg";
 import { BsStars } from "react-icons/bs";
 import authHooks from "../hooks/useAuth";
 import { useState } from "react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  isMobile?: boolean;
+  onClose?: () => void;
+}
+
+const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
   const location = useLocation();
   const { user, meta } = authHooks.useUser();
 
@@ -213,19 +219,37 @@ const Sidebar = () => {
 
   return (
     <div className="flex h-full flex-col space-y-1 p-3">
+      {/* Mobile Close Button */}
+      {isMobile && onClose && (
+        <div className="flex items-center justify-between border-b border-gray-300 px-2 pb-3">
+          <span className="text-lg font-semibold text-gray-900">Menu</span>
+          <button
+            onClick={onClose}
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-600 hover:bg-gray-100"
+            aria-label="Close menu"
+          >
+            <FaTimes className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+
       {/* Logo/Brand - Click to go Home */}
-      <NavLink
-        to="/"
-        className="flex items-center gap-3 border-b border-gray-300 px-2 pb-3"
-      >
-        <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shadow-md">
-          <span className="text-2xl font-bold text-white">S</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold text-gray-900">SocialHub</span>
-          <span className="text-sm text-gray-500">Connect & Learn</span>
-        </div>
-      </NavLink>
+      {!isMobile && (
+        <NavLink
+          to="/"
+          className="flex items-center gap-3 border-b border-gray-300 px-2 pb-3"
+        >
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shadow-md">
+            <span className="text-2xl font-bold text-white">S</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-lg font-semibold text-gray-900">
+              SocialHub
+            </span>
+            <span className="text-sm text-gray-500">Connect & Learn</span>
+          </div>
+        </NavLink>
+      )}
 
       {/* Navigation Menu */}
       <div className="hide-scrollbar flex-1 overflow-y-auto">
@@ -267,6 +291,7 @@ const Sidebar = () => {
                         <NavLink
                           key={subIdx}
                           to={sub.path}
+                          onClick={isMobile && onClose ? onClose : undefined}
                           className={`flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
                             sub.active
                               ? "bg-blue-50 font-semibold text-blue-600"
@@ -291,6 +316,7 @@ const Sidebar = () => {
               <NavLink
                 key={index}
                 to={item.path || "#"}
+                onClick={isMobile && onClose ? onClose : undefined}
                 className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all duration-200 ${
                   item.active
                     ? "bg-blue-50 font-semibold text-blue-600"
@@ -326,6 +352,7 @@ const Sidebar = () => {
           <div className="flex items-center gap-2">
             <NavLink
               to={profilePath}
+              onClick={isMobile && onClose ? onClose : undefined}
               className={({ isActive }) =>
                 `group flex flex-1 items-center rounded-xl px-4 py-3 text-base font-medium transition-all duration-200 ${
                   isActive
