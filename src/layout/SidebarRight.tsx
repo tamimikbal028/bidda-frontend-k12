@@ -288,7 +288,7 @@ const SidebarRight = () => {
       {/* Footer */}
       <div className="rounded-lg border border-gray-200 bg-white p-4">
         <div className="space-y-2 text-xs text-gray-500">
-          <p>© 2025 Open Study. All rights reserved.</p>
+          <p>© 2025 Bidda. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-3 gap-y-1">
             <a href="#" className="hover:text-gray-700">
               Privacy

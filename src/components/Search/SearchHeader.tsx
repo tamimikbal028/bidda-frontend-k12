@@ -8,7 +8,7 @@ const SearchHeader = () => {
         <h1 className="text-3xl font-bold text-gray-900">Search</h1>
       </div>
       <p className="text-gray-600">
-        Find people, posts, hashtags, and more across Open Study
+        Find people, posts, hashtags, and more across SocialHub
       </p>
     </div>
   );
