@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import Sidebar from "./layout/Sidebar";
-import SidebarRight from "./layout/SidebarRight";
 import MainContent from "./layout/MainContent";
 import authHooks from "./hooks/useAuth";
 import { AUTH_KEYS } from "./constants";
-import Navbar from "./layout/Navbar";
 import AuthLoading from "./components/Shared/AuthLoading";
 
 const App = () => {
@@ -16,11 +14,9 @@ const App = () => {
   const { isCheckingAuth, isAuthenticated } = authHooks.useUser();
 
   // Global logout event listener
-  // Axios interceptor fires this when all tokens expire
   useEffect(() => {
     const handleLogout = () => {
       console.log("Global logout event received");
-      // Clear user data in cache
       queryClient.setQueryData([AUTH_KEYS.CURRENT_USER], null);
     };
 
@@ -30,7 +26,6 @@ const App = () => {
     };
   }, [queryClient]);
 
-  const isMessagesPage = location.pathname === "/messages";
   const isStudyHelperPage = location.pathname === "/study-helper";
 
   if (isCheckingAuth) {
@@ -54,11 +49,11 @@ const App = () => {
       <div className="h-full overflow-y-auto">
         <div
           className={
-            isMessagesPage || isStudyHelperPage ? "mx-5" : "mx-auto w-[750px]"
+            isStudyHelperPage ? "mx-5" : "mx-auto w-[750px]"
           }
         >
           <div className="sticky top-0 z-50 hidden">
-            <Navbar />
+            {/* Navbar is hidden as per original code */}
           </div>
           <div className="space-y-5 py-5">
             <MainContent />
@@ -67,7 +62,7 @@ const App = () => {
       </div>
 
       <div className="hidden h-full w-75 overflow-y-auto border-l border-gray-500 bg-white">
-        <SidebarRight />
+        {/* SidebarRight is hidden and file has been deleted as part of feature removal */}
       </div>
     </div>
   );
