@@ -7,8 +7,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/",
   server: {
-    port: 6000,
+    port: 4000,
     strictPort: true,
+    host: true,
   },
   build: {
     rollupOptions: {
