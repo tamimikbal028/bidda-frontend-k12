@@ -1,59 +1,39 @@
-import { useState } from "react";
-import type { KeyboardEvent } from "react";
-import AIHeader from "../components/StudyHelper/AIHeader";
-import ChatArea from "../components/StudyHelper/ChatArea";
-import AISidebar from "../components/StudyHelper/AISidebar";
-import AIMessageInput from "../components/StudyHelper/AIMessageInput";
-import AIWelcomeContent from "../components/StudyHelper/AIWelcomeContent";
-
 const StudyHelperAI = () => {
-  const [message, setMessage] = useState("");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [hasMessages, setHasMessages] = useState(false);
-
-  const handleSendMessage = () => {
-    if (message.trim()) {
-      // Functionality will be added later
-      console.log("Message:", message);
-      setHasMessages(true); // Show chat area when message is sent
-      setMessage("");
-    }
-  };
-
-  const handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
-
   return (
-    <div className="flex h-[calc(100vh-88px)] flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
-      {/* Header */}
-      <AIHeader
-        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-        isSidebarOpen={isSidebarOpen}
-      />
-      {/* Content Area with Sidebar */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* AI Sidebar */}
-        <AISidebar
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-        />
-
-        {/* Chat Area */}
-        <div className="flex flex-1 justify-center overflow-y-auto bg-gray-50 p-3">
-          {!hasMessages ? <AIWelcomeContent /> : <ChatArea />}
+    <div className="flex min-h-[calc(100vh-96px)] items-center justify-center rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="mx-auto w-full max-w-3xl rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-cyan-50 p-8 text-center shadow-lg">
+        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-600 text-2xl font-bold text-white shadow-md">
+          AI
+        </div>
+        <h1 className="text-3xl font-bold text-gray-900">Study Helper</h1>
+        <p className="mt-3 text-base leading-7 text-gray-600">
+          This is a dummy Study Helper page for the K12 app.
+        </p>
+        <p className="mt-2 text-sm leading-6 text-gray-500">
+          Chat assistant, subject tools, and smart suggestions will be added
+          here later.
+        </p>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-white bg-white/80 p-4 text-left shadow-sm">
+            <h2 className="font-semibold text-gray-900">Ask Questions</h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Students will be able to ask study questions here.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white bg-white/80 p-4 text-left shadow-sm">
+            <h2 className="font-semibold text-gray-900">Practice Help</h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Homework and revision support section will live here.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white bg-white/80 p-4 text-left shadow-sm">
+            <h2 className="font-semibold text-gray-900">Subject Tips</h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Quick learning tips and resources will be shown here.
+            </p>
+          </div>
         </div>
       </div>
-      {/* Message Input */}
-      <AIMessageInput
-        message={message}
-        setMessage={setMessage}
-        onSendMessage={handleSendMessage}
-        onKeyPress={handleKeyPress}
-      />
     </div>
   );
 };

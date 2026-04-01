@@ -59,7 +59,7 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
     {
       icon: FaComments,
       display: FEATURE_FLAGS.OPEN_DISCUSSION,
-      label: "Open Study",
+      label: "Open Discussion",
       path: "/open-discussion",
       active: location.pathname.startsWith("/open-discussion"),
     },
@@ -170,7 +170,7 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
     {
       icon: BsStars,
       display: FEATURE_FLAGS.STUDY_HELPER,
-      label: "Study Helper AI",
+      label: "Study Helper",
       path: "/study-helper",
       active: location.pathname.startsWith("/study-helper"),
     },

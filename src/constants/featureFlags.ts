@@ -10,7 +10,7 @@ export const FEATURE_FLAGS = {
   COMPETITION: true,
   NOTIFICATIONS: false,
   MESSAGES: false,
-  STUDY_HELPER: false,
+  STUDY_HELPER: true,
   OPEN_DISCUSSION: true,
   CAREER_HUB: false,
   STORE: false,
