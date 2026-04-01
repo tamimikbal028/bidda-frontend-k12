@@ -1,10 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import GamingHeader from "../../components/Gaming/GamingHeader.tsx";
-import Dashboard from "../../components/Gaming/Dashboard.tsx";
-import Play from "../../components/Gaming/Play.tsx";
-import Leaderboard from "../../components/Gaming/Leaderboard.tsx";
-import Achievements from "../../components/Gaming/Achievements.tsx";
-import Tournament from "../../components/Gaming/Tournament.tsx";
+import GamingHeader from "../components/Gaming/GamingHeader.tsx";
+import Dashboard from "../components/Gaming/Dashboard.tsx";
+import Play from "../components/Gaming/Play.tsx";
+import Leaderboard from "../components/Gaming/Leaderboard.tsx";
+import Achievements from "../components/Gaming/Achievements.tsx";
+import Tournament from "../components/Gaming/Tournament.tsx";
 
 const Gaming = () => {
   return (

@@ -88,7 +88,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="hidden h-full w-75 overflow-y-auto border-l border-gray-500 bg-white xl:block">
+      <div className="hidden h-full w-75 overflow-y-auto border-l border-gray-500 bg-white">
         <SidebarRight />
       </div>
     </div>
