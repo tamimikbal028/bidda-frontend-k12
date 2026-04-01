@@ -54,7 +54,7 @@ const App = () => {
 
       <div className="flex-1 overflow-y-auto pt-15 md:pt-0">
         <div className="max-w-full md:mx-auto md:w-[750px]">
-          <div className="space-y-5 py-3">
+          <div className="space-y-5 p-3 md:px-0">
             <MainContent />
           </div>
         </div>
