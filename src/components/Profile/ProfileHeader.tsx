@@ -15,6 +15,10 @@ import dropdownHooks from "../../hooks/useDropdown";
 import FollowButton from "../Shared/Action Buttons/FollowButton";
 import CopyLinkButton from "../Shared/Action Buttons/CopyLinkButton";
 import friendshipHooks from "../../hooks/common/useFriendship";
+import {
+  AvatarImage,
+  CoverImage,
+} from "../../utils/components/FallbackImage";
 
 interface ProfileHeaderProps {
   data: ProfileHeaderData;
@@ -155,8 +159,9 @@ const ProfileHeader = ({ data }: ProfileHeaderProps) => {
     <div className="relative overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
       {/* Cover Image */}
       <div className="relative h-48 w-full bg-gradient-to-r from-blue-500 to-purple-600 md:h-64">
-        <img
+        <CoverImage
           src={userData.coverImage}
+          name={userData.fullName}
           alt="Cover"
           className="h-full w-full object-cover"
         />
@@ -241,8 +246,9 @@ const ProfileHeader = ({ data }: ProfileHeaderProps) => {
       <div className="relative px-5 pb-5">
         {/* Avatar - overlaying the cover */}
         <div className="relative -mt-16 mb-4 md:-mt-20">
-          <img
+          <AvatarImage
             src={userData.avatar}
+            name={userData.fullName}
             alt={userData.fullName}
             className="h-32 w-32 rounded-full border-4 border-white object-cover shadow-xl md:h-40 md:w-40"
           />

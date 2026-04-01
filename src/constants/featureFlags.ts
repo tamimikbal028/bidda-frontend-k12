@@ -1,5 +1,5 @@
 export const FEATURE_FLAGS = {
-  PROFILE: false,
+  PROFILE: true,
   SEARCH: false,
   CR_CORNER: false,
   GROUPS: false,

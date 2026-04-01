@@ -1,13 +1,18 @@
 import { useState, useRef, type ChangeEvent } from "react";
 import { FaCamera, FaImage, FaSpinner } from "react-icons/fa";
 import profileHooks from "../../hooks/useProfile";
+import {
+  AvatarImage,
+  CoverImage,
+} from "../../utils/components/FallbackImage";
 
 interface PhotosTabProps {
   avatar: string;
+  fullName?: string;
   coverImage?: string;
 }
 
-const PhotosTab = ({ avatar, coverImage }: PhotosTabProps) => {
+const PhotosTab = ({ avatar, fullName, coverImage }: PhotosTabProps) => {
   const avatarInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
 
@@ -99,8 +104,9 @@ const PhotosTab = ({ avatar, coverImage }: PhotosTabProps) => {
           {/* Current/Preview Image */}
           <div className="relative">
             <div className="h-40 w-40 overflow-hidden rounded-full border-4 border-gray-200 bg-gray-100">
-              <img
+              <AvatarImage
                 src={avatarPreview || avatar}
+                name={fullName}
                 alt="Avatar"
                 className="h-full w-full object-cover"
               />
@@ -180,8 +186,9 @@ const PhotosTab = ({ avatar, coverImage }: PhotosTabProps) => {
           {/* Current/Preview Cover */}
           <div className="relative">
             <div className="h-48 w-full overflow-hidden rounded-lg bg-gray-100">
-              <img
+              <CoverImage
                 src={coverPreview || coverImage}
+                name={fullName}
                 alt="Cover"
                 className="h-full w-full object-cover"
               />

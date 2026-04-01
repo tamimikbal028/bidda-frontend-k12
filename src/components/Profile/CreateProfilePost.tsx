@@ -20,6 +20,7 @@ import {
 } from "../../constants/post";
 import authHooks from "../../hooks/useAuth";
 import profileHooks from "../../hooks/useProfile";
+import { AvatarImage } from "../../utils/components/FallbackImage";
 
 const createProfilePostSchema = z.object({
   content: z
@@ -160,8 +161,9 @@ const CreateProfilePost = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* User Avatar and Input */}
           <div className="flex space-x-3">
-            <img
+            <AvatarImage
               src={currentUser?.avatar}
+              name={currentUser?.fullName}
               alt={currentUser?.fullName || "Your avatar"}
               className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300 object-cover"
             />

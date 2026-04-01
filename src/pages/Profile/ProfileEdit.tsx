@@ -104,7 +104,11 @@ const ProfileEdit = () => {
       {/* Tab Content */}
       <div className="mx-auto max-w-4xl px-4 pt-6">
         {activeTab === "photos" && (
-          <PhotosTab avatar={user.avatar} coverImage={user.coverImage} />
+          <PhotosTab
+            avatar={user.avatar}
+            fullName={user.fullName}
+            coverImage={user.coverImage}
+          />
         )}
 
         {activeTab === "general" && <GeneralTab user={user} />}
