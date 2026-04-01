@@ -61,7 +61,7 @@ export const routes: RouteConfig[] = [
   {
     path: "/gaming/*",
     display: FEATURE_FLAGS.COMPETITION,
-    Component: lazy(() => import("../pages/Gaming/Gaming")),
+    Component: lazy(() => import("../pages/Gaming")),
     requireAuth: true,
     title: "Gaming",
     category: "entertainment",
