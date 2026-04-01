@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import MobileNav from "./layout/MobileNav";
 import Sidebar from "./layout/Sidebar";
@@ -10,7 +9,6 @@ import { AUTH_KEYS } from "./constants";
 import AuthLoading from "./components/Shared/AuthLoading";
 
 const App = () => {
-  const location = useLocation();
   const queryClient = useQueryClient();
 
   const { isCheckingAuth, isAuthenticated } = authHooks.useUser();
@@ -29,8 +27,6 @@ const App = () => {
       window.removeEventListener("auth:logout", handleLogout);
     };
   }, [queryClient]);
-
-  const isStudyHelperPage = location.pathname === "/study-helper";
 
   if (isCheckingAuth) {
     return <AuthLoading />;
@@ -55,14 +51,8 @@ const App = () => {
       </div>
 
       <div className="flex-1 overflow-y-auto pt-14 md:pt-0">
-        <div
-          className={
-            isStudyHelperPage
-              ? "mx-4 md:mx-5"
-              : "mx-4 max-w-full md:mx-auto md:w-[750px]"
-          }
-        >
-          <div className="space-y-5 py-4 md:py-5">
+        <div className="mx-4 max-w-full md:mx-auto md:w-[750px]">
+          <div className="space-y-5 border py-4 md:py-5">
             <MainContent />
           </div>
         </div>
