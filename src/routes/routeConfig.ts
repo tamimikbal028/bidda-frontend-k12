@@ -165,34 +165,6 @@ export const routes: RouteConfig[] = [
     category: "social",
     meta: { description: "Open discussions and chat rooms" },
   },
-  // Profile routes
-  {
-    path: "/profile/:username",
-    display: FEATURE_FLAGS.PROFILE,
-    Component: lazy(() => import("../pages/Profile/Profile")),
-    requireAuth: true,
-    title: "User Profile",
-    category: "profile",
-    meta: { description: "View user profile" },
-  },
-  {
-    path: "/profile/edit",
-    display: FEATURE_FLAGS.PROFILE,
-    Component: lazy(() => import("../pages/Profile/ProfileEdit")),
-    requireAuth: true,
-    title: "Edit Profile",
-    category: "profile",
-    meta: { description: "Edit your profile information" },
-  },
-  {
-    path: "/profile/:username/details",
-    display: FEATURE_FLAGS.PROFILE,
-    Component: lazy(() => import("../pages/Profile/ProfileDetails")),
-    requireAuth: true,
-    title: "User Profile Details",
-    category: "profile",
-    meta: { description: "View user's detailed profile information" },
-  },
 
   // Settings routes
   {

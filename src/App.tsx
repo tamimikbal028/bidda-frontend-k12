@@ -31,7 +31,6 @@ const App = () => {
     };
   }, [queryClient]);
 
-  const isMessagesPage = location.pathname === "/messages";
   const isStudyHelperPage = location.pathname === "/study-helper";
 
   if (isCheckingAuth) {
@@ -78,7 +77,7 @@ const App = () => {
       <div className="flex-1 overflow-y-auto pt-14 md:pt-0">
         <div
           className={
-            isMessagesPage || isStudyHelperPage
+            isStudyHelperPage
               ? "mx-4 md:mx-5"
               : "mx-4 max-w-full md:mx-auto md:w-[750px]"
           }

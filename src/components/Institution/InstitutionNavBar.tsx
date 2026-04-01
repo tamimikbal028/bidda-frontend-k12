@@ -1,7 +1,6 @@
 
 import { NavLink, useParams } from "react-router-dom";
 import { FaGraduationCap } from "react-icons/fa";
-import { BsPostcard } from "react-icons/bs";
 import { TbListDetails } from "react-icons/tb";
 import { CgMoreVerticalO } from "react-icons/cg";
 
@@ -10,13 +9,12 @@ const InstitutionNavBar = () => {
   const baseUrl = `/institutions/${instId}`;
 
   const tabs = [
-    { path: baseUrl, label: "Feed", icon: BsPostcard, end: true },
     {
       path: `${baseUrl}/departments`,
       label: "Departments",
       icon: FaGraduationCap,
     },
-    { path: `${baseUrl}/about`, label: "About", icon: TbListDetails },
+    { path: `${baseUrl}/about`, label: "About", icon: TbListDetails, end: true },
     { path: `${baseUrl}/more`, label: "More", icon: CgMoreVerticalO },
   ];
 

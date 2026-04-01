@@ -12,8 +12,8 @@ export interface Institution {
   website?: string;
   contactEmails?: string[];
   description?: string;
-  logo: string;
-  coverImage?: string;
+  logo: string | null;
+  coverImage?: string | null;
   postsCount: number;
   followersCount: number;
   isActive: boolean;
@@ -24,8 +24,8 @@ export interface Institution {
 export interface InstitutionHeaderData {
   _id: string;
   name: string;
-  logo: string;
-  coverImage: string;
+  logo: string | null;
+  coverImage: string | null;
   website?: string;
   location: string;
   isActive: boolean;

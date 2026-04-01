@@ -9,8 +9,8 @@ export interface Department {
   institution: string | Institution;
   location?: string;
   description?: string;
-  logo?: string;
-  coverImage?: string;
+  logo?: string | null;
+  coverImage?: string | null;
   postsCount: number;
   studentsCount: number;
   followersCount: number;
@@ -27,8 +27,8 @@ export interface DepartmentHeaderData {
   _id: string;
   name: string;
   code: string;
-  logo: string;
-  coverImage: string;
+  logo: string | null;
+  coverImage: string | null;
   isActive: boolean;
   website?: string;
   institution: {
@@ -47,7 +47,7 @@ export interface MiniDepartment {
     code: string;
   };
   studentsCount: number;
-  logo: string;
+  logo: string | null;
 }
 
 export interface DepartmentsListResponse {
@@ -89,7 +89,7 @@ export interface DepartmentFaculty {
   _id: string;
   fullName: string;
   userName: string;
-  avatar: string;
+  avatar: string | null;
 }
 
 export interface DepartmentFacultyMeta {

@@ -5,8 +5,6 @@ import {
   RELIGIONS,
   TEACHER_RANKS,
   ACCOUNT_STATUS,
-  FRIEND_REQUEST_POLICY,
-  CONNECTION_VISIBILITY,
 } from "../constants";
 import type { Department } from "./department.types";
 
@@ -17,11 +15,6 @@ export type Gender = (typeof GENDERS)[keyof typeof GENDERS];
 export type Religion = (typeof RELIGIONS)[keyof typeof RELIGIONS];
 export type TeacherRank = (typeof TEACHER_RANKS)[keyof typeof TEACHER_RANKS];
 
-// Privacy Settings Enums
-export type FriendRequestPolicy =
-  (typeof FRIEND_REQUEST_POLICY)[keyof typeof FRIEND_REQUEST_POLICY];
-export type ConnectionVisibility =
-  (typeof CONNECTION_VISIBILITY)[keyof typeof CONNECTION_VISIBILITY];
 
 export interface SocialLinks {
   linkedin?: string;
@@ -30,10 +23,7 @@ export interface SocialLinks {
   facebook?: string;
 }
 
-export interface PrivacySettings {
-  friendRequestPolicy: FriendRequestPolicy;
-  connectionVisibility: ConnectionVisibility;
-}
+
 
 // Student-specific fields
 export interface StudentAcademicInfo {
@@ -69,9 +59,9 @@ export interface ProfileHeaderUser {
   // Basic Info
   fullName: string;
   userName: string;
-  avatar: string;
+  avatar: string | null;
   email: string;
-  coverImage: string;
+  coverImage: string | null;
   bio?: string;
   userType: UserType;
   isInstitutionalEmail: boolean;
@@ -93,8 +83,8 @@ export interface User {
   phoneNumber?: string;
 
   // Profile
-  avatar: string;
-  coverImage: string;
+  avatar: string | null;
+  coverImage: string | null;
   bio?: string;
   gender?: Gender;
   religion?: Religion;
@@ -150,7 +140,7 @@ export interface AuthUser {
   _id: string;
   fullName: string;
   userName: string;
-  avatar: string;
+  avatar: string | null;
   userType: UserType;
   isInstitutionalEmail: boolean;
   accountStatus: AccountStatus;

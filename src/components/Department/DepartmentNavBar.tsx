@@ -1,15 +1,18 @@
 import { NavLink, useParams } from "react-router-dom";
 import { FaUserTie } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
-import { BsPostcard } from "react-icons/bs";
 
 const DepartmentNavBar = () => {
   const { deptId } = useParams();
   const baseUrl = `/departments/${deptId}`;
 
   const tabs = [
-    { path: baseUrl, label: "Feed", icon: BsPostcard, end: true },
-    { path: `${baseUrl}/faculty`, label: "Faculty", icon: FaUserTie },
+    {
+      path: `${baseUrl}/faculty`,
+      label: "Faculty",
+      icon: FaUserTie,
+      end: true,
+    },
     { path: `${baseUrl}/details`, label: "Details", icon: TbListDetails },
   ];
 

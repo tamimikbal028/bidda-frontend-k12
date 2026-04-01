@@ -1,4 +1,3 @@
-import { FaUniversity } from "react-icons/fa";
 import { FOLLOW_TARGET_MODELS, INSTITUTION_KEYS } from "../../constants";
 import InstitutionNavBar from "./InstitutionNavBar";
 import FollowButton from "../Shared/Action Buttons/FollowButton";
@@ -8,6 +7,7 @@ import BackButton from "../Shared/Action Buttons/BackButton";
 import institutionHooks from "../../hooks/useInstitution";
 import InstitutionHeaderSkeleton from "../Shared/skeletons/InstitutionHeaderSkeleton";
 import NotFoundError from "../Shared/errors/NotFoundError";
+import { AvatarImage, CoverImage } from "../../utils/components/FallbackImage";
 
 const InstitutionHeader = () => {
   const { instId } = useParams();
@@ -36,17 +36,11 @@ const InstitutionHeader = () => {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3">
           {/* Logo - Smaller */}
           <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg border-2 border-gray-200 bg-gray-100">
-            {institution.logo ? (
-              <img
-                src={institution.logo}
-                alt={institution.name}
-                className="h-full w-full object-contain"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-blue-600">
-                <FaUniversity className="h-6 w-6" />
-              </div>
-            )}
+            <AvatarImage
+              src={institution.logo}
+              name={institution.name}
+              className="h-full w-full object-contain"
+            />
           </div>
 
           {/* Institution Name and Location - Can wrap to next line */}
@@ -73,9 +67,9 @@ const InstitutionHeader = () => {
 
       {/* Cover Image with Floating Elements */}
       <div className="relative h-64 w-full overflow-hidden md:h-80">
-        <img
+        <CoverImage
           src={institution.coverImage}
-          alt={institution.name}
+          name={institution.name}
           className="h-full w-full object-cover"
         />
 

@@ -27,7 +27,7 @@ export interface Post {
 
   // Display fields (unified for all post types)
   displayName: string;
-  displayAvatar: string;
+  displayAvatar: string | null;
   displayUrl: string;
 
   // Stats

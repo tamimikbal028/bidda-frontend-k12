@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { FaEye, FaEyeSlash, FaUpload } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import authHooks from "../../hooks/useAuth";
-import SubmitToBox from "../../components/ClassRoom/box/SubmitToBox";
 
 // Zod Schema for Login
 const loginSchema = z.object({
@@ -20,7 +19,6 @@ type LoginFormData = z.infer<typeof loginSchema>;
 const Login = () => {
   const { mutate: login, isPending } = authHooks.useLogin();
   const [showPassword, setShowPassword] = useState(false);
-  const [showSubmitForm, setShowSubmitForm] = useState(false);
   // Ref for focusing password field
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
@@ -79,7 +77,6 @@ const Login = () => {
       {/* Right Side - Forms and Toggle */}
       <div className="flex flex-col gap-4">
         {/* Form Container */}
-        {!showSubmitForm ? (
           <div className="w-[400px] rounded-lg border bg-white p-8 shadow-lg">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-4">
@@ -205,20 +202,7 @@ const Login = () => {
               </p>
             </div>
           </div>
-        ) : (
-          <div className="w-[500px]">
-            <SubmitToBox />
-          </div>
-        )}
 
-        {/* Toggle Button - Outside Forms */}
-        <button
-          onClick={() => setShowSubmitForm(!showSubmitForm)}
-          className="flex w-full items-center justify-center gap-2 rounded-lg border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-600 shadow-sm transition-colors hover:bg-blue-50"
-        >
-          {!showSubmitForm && <FaUpload className="h-4 w-4" />}
-          {showSubmitForm ? "Back to Login" : "Submit File to Box"}
-        </button>
       </div>
     </div>
   );
