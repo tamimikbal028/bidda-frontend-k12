@@ -41,18 +41,20 @@ const App = () => {
   }
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden md:grid md:grid-cols-[15rem_1fr_auto]">
+    <div className="flex h-full flex-col overflow-hidden md:grid md:grid-cols-[15rem_1fr_auto]">
       {/* Mobile Top Navigation */}
-      <MobileNav />
+      <div className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white px-4 py-2.5 shadow-sm md:hidden">
+        <MobileNav />
+      </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden h-full overflow-y-auto bg-gray-50 md:block">
+      <div className="hidden h-screen overflow-y-auto bg-gray-50 md:block">
         <Sidebar />
       </div>
 
-      <div className="flex-1 overflow-y-auto pt-14 md:pt-0">
-        <div className="mx-4 max-w-full md:mx-auto md:w-[750px]">
-          <div className="space-y-5 border py-4 md:py-5">
+      <div className="flex-1 overflow-y-auto pt-15 md:pt-0">
+        <div className="max-w-full md:mx-auto md:w-[750px]">
+          <div className="space-y-5 py-3">
             <MainContent />
           </div>
         </div>

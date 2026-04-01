@@ -39,7 +39,7 @@ const MobileNav = () => {
   ];
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white px-4 py-2 shadow-sm md:hidden">
+    <>
       <nav className="flex items-center justify-between">
         {navItems.map((item, index) => {
           if (item.display === false) return null;
@@ -59,7 +59,7 @@ const MobileNav = () => {
           );
         })}
       </nav>
-    </div>
+    </>
   );
 };
 
