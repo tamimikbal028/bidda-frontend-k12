@@ -43,7 +43,7 @@ const App = () => {
   return (
     <div className="flex h-full flex-col overflow-hidden md:grid md:grid-cols-[15rem_1fr_auto]">
       {/* Mobile Top Navigation */}
-      <div className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white px-4 py-2.5 shadow-sm md:hidden">
+      <div className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white px-3 py-2.5 shadow-sm md:hidden">
         <MobileNav />
       </div>
 
@@ -54,7 +54,7 @@ const App = () => {
 
       <div className="flex-1 overflow-y-auto pt-15 md:pt-0">
         <div className="max-w-full md:mx-auto md:w-[750px]">
-          <div className="space-y-5 p-3 md:px-0">
+          <div className="space-y-5 px-3 py-3 md:px-0">
             <MainContent />
           </div>
         </div>
