@@ -6,7 +6,6 @@ import {
   TEACHER_RANKS,
   ACCOUNT_STATUS,
 } from "../constants";
-import type { Department } from "./department.types";
 
 export type UserType = (typeof USER_TYPES)[keyof typeof USER_TYPES];
 export type AccountStatus =
@@ -14,32 +13,6 @@ export type AccountStatus =
 export type Gender = (typeof GENDERS)[keyof typeof GENDERS];
 export type Religion = (typeof RELIGIONS)[keyof typeof RELIGIONS];
 export type TeacherRank = (typeof TEACHER_RANKS)[keyof typeof TEACHER_RANKS];
-
-
-
-
-
-
-// Student-specific fields
-export interface StudentAcademicInfo {
-  department?: Department;
-  studentId?: string;
-  session?: string;
-  currentSemester?: number;
-  section?: string;
-}
-
-// Teacher-specific fields
-export interface TeacherAcademicInfo {
-  department?: Department;
-  teacherId?: string;
-  rank?: TeacherRank;
-  officeHours?: {
-    day: string;
-    timeRange: string;
-    room: string;
-  }[];
-}
 
 export interface ProfileHeaderUser {
   _id: string;
@@ -108,6 +81,7 @@ export interface AuthUser {
   _id: string;
   fullName: string;
   userName: string;
+  userType: string;
   avatar: string | null;
   accountStatus: AccountStatus;
   restrictions: {
