@@ -67,26 +67,6 @@ export const routes: RouteConfig[] = [
     category: "entertainment",
     meta: { description: "Gaming hub and competitions" },
   },
-  {
-    path: "/cr-corner",
-    display: FEATURE_FLAGS.CR_CORNER,
-    Component: lazy(() => import("../pages/CRCorner")),
-    requireAuth: true,
-    title: "CR Corner",
-    category: "education",
-    meta: {
-      description: "Class announcements, polls, and updates from your CR",
-    },
-  },
-  {
-    path: "/classroom/*",
-    display: FEATURE_FLAGS.CLASSROOM,
-    Component: lazy(() => import("../pages/ClassRoom/ClassRoom")),
-    requireAuth: true,
-    title: "ClassRoom",
-    category: "education",
-    meta: { description: "Attend and manage live online classes" },
-  },
 
   // Institutions routes
   {
@@ -167,85 +147,6 @@ export const routes: RouteConfig[] = [
     category: "education",
     meta: { description: "Manage department settings and information" },
   },
-
-  // Utility routes
-  {
-    path: "/search",
-    display: FEATURE_FLAGS.SEARCH,
-    Component: lazy(() => import("../pages/Search")),
-    requireAuth: true,
-    title: "Search",
-    category: "utility",
-    meta: { description: "Search across the platform" },
-  },
-
-  {
-    path: "/files",
-    display: FEATURE_FLAGS.FILES,
-    Component: lazy(() => import("../pages/FilesAndArchive")),
-    requireAuth: true,
-    title: "Files & Archive",
-    category: "education",
-    meta: {
-      description: "Manage personal files and explore community study archive",
-    },
-  },
-  {
-    path: "/store",
-    display: FEATURE_FLAGS.STORE,
-    Component: lazy(() => import("../pages/StudentStore")),
-    requireAuth: true,
-    title: "Store",
-    category: "shopping",
-    meta: { description: "Student marketplace and store" },
-  },
-  {
-    path: "/tuition",
-    display: FEATURE_FLAGS.TUITION,
-    Component: lazy(() => import("../pages/Tuition")),
-    requireAuth: true,
-    title: "Tuition",
-    category: "education",
-    meta: { description: "Find tutors and tuition services" },
-  },
-
-  // Social features
-  {
-    path: "/groups/*",
-    display: FEATURE_FLAGS.GROUPS,
-    Component: lazy(() => import("../pages/Group/Groups")),
-    requireAuth: true,
-    title: "Groups",
-    category: "social",
-    meta: { description: "Join and manage groups" },
-  },
-  {
-    path: "/groups/:slug/edit",
-    display: FEATURE_FLAGS.GROUPS,
-    Component: lazy(() => import("../pages/Group/EditGroupPage")),
-    requireAuth: true,
-    title: "Manage Group",
-    category: "social",
-    meta: { description: "Edit group information and settings" },
-  },
-  {
-    path: "/notifications",
-    display: FEATURE_FLAGS.NOTIFICATIONS,
-    Component: lazy(() => import("../pages/Notifications")),
-    requireAuth: true,
-    title: "Notifications",
-    category: "social",
-    meta: { description: "Your notifications and updates" },
-  },
-  {
-    path: "/messages",
-    display: FEATURE_FLAGS.MESSAGES,
-    Component: lazy(() => import("../pages/Messages")),
-    requireAuth: true,
-    title: "Messages",
-    category: "social",
-    meta: { description: "Chat and messaging" },
-  },
   {
     path: "/study-helper",
     display: FEATURE_FLAGS.STUDY_HELPER,
@@ -264,43 +165,6 @@ export const routes: RouteConfig[] = [
     category: "social",
     meta: { description: "Open discussions and chat rooms" },
   },
-  {
-    path: "/career-hub",
-    display: FEATURE_FLAGS.CAREER_HUB,
-    Component: lazy(() => import("../pages/CareerHub")),
-    requireAuth: true,
-    title: "Career Hub",
-    category: "career",
-    meta: { description: "Find jobs and internship opportunities" },
-  },
-  {
-    path: "/saved",
-    display: FEATURE_FLAGS.SAVED,
-    Component: lazy(() => import("../pages/Saved")),
-    requireAuth: true,
-    title: "Saved",
-    category: "utility",
-    meta: { description: "Your saved posts and content" },
-  },
-  {
-    path: "/friends/*",
-    display: FEATURE_FLAGS.FRIENDS,
-    Component: lazy(() => import("../pages/Friends")),
-    requireAuth: true,
-    title: "Friends",
-    category: "social",
-    meta: { description: "Manage your friends and connections" },
-  },
-  {
-    path: "/videos",
-    display: FEATURE_FLAGS.VIDEOS,
-    Component: lazy(() => import("../pages/Videos")),
-    requireAuth: true,
-    title: "Videos",
-    category: "education",
-    meta: { description: "Watch and share videos" },
-  },
-
   // Profile routes
   {
     path: "/profile/:username",
@@ -339,26 +203,6 @@ export const routes: RouteConfig[] = [
     title: "Settings",
     category: "utility",
     meta: { description: "Account and app settings" },
-  },
-
-  // More routes
-  {
-    path: "/more",
-    display: FEATURE_FLAGS.MORE,
-    Component: lazy(() => import("../pages/MainMore")),
-    requireAuth: true,
-    title: "More",
-    category: "utility",
-    meta: { description: "Additional features and services" },
-  },
-  {
-    path: "/more/blood-donation",
-    display: FEATURE_FLAGS.BLOOD_DONATION,
-    Component: lazy(() => import("../pages/MainMore/BloodDonation")),
-    requireAuth: true,
-    title: "Blood Donation",
-    category: "utility",
-    meta: { description: "Find blood donors and save lives" },
   },
 
   // 404 route

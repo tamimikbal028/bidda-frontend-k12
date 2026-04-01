@@ -2,27 +2,15 @@ import { NavLink, useLocation } from "react-router-dom";
 import {
   FaUser,
   FaCog,
-  FaBell,
-  FaVideo,
-  FaLayerGroup,
-  FaFolder,
-  FaStore,
-  FaChalkboardTeacher,
-  FaSchool,
-  FaBriefcase,
   FaComments,
-  FaUserFriends,
-  FaSearch,
   FaTrophy,
   FaUniversity,
   FaGraduationCap,
   FaChevronDown,
   FaChevronUp,
   FaCompass,
-  FaEnvelope,
   FaTimes,
 } from "react-icons/fa";
-import { CgMoreVerticalO } from "react-icons/cg";
 import { BsStars } from "react-icons/bs";
 import authHooks from "../hooks/useAuth";
 import { useState } from "react";
@@ -62,41 +50,6 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
       label: "Open Discussion",
       path: "/open-discussion",
       active: location.pathname.startsWith("/open-discussion"),
-    },
-    {
-      icon: FaSchool,
-      display: FEATURE_FLAGS.CLASSROOM,
-      label: "ClassRoom",
-      path: "/classroom",
-      active: location.pathname.startsWith("/classroom"),
-    },
-    {
-      icon: FaFolder,
-      display: FEATURE_FLAGS.FILES,
-      label: "Files & Archive",
-      path: "/files",
-      active: location.pathname.startsWith("/files"),
-    },
-    {
-      icon: FaEnvelope,
-      display: FEATURE_FLAGS.MESSAGES,
-      label: "Messages",
-      path: "/messages",
-      active: location.pathname.startsWith("/messages"),
-    },
-    {
-      icon: FaLayerGroup,
-      display: FEATURE_FLAGS.GROUPS,
-      label: "Groups",
-      path: "/groups",
-      active: location.pathname.startsWith("/groups"),
-    },
-    {
-      icon: FaSearch,
-      display: FEATURE_FLAGS.SEARCH,
-      label: "Search",
-      path: "/search",
-      active: location.pathname.startsWith("/search"),
     },
     {
       icon: FaUniversity,
@@ -152,21 +105,7 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
       ],
       active: location.pathname.startsWith("/departments"),
     },
-    {
-      icon: FaUserFriends,
-      display: FEATURE_FLAGS.FRIENDS,
-      label: "Friends",
-      path: "/friends",
-      active: location.pathname.startsWith("/friends"),
-    },
-    {
-      icon: FaBell,
-      display: FEATURE_FLAGS.NOTIFICATIONS,
-      label: "Notifications",
-      path: "/notifications",
-      active: location.pathname.startsWith("/notifications"),
-      badge: 5,
-    },
+
     {
       icon: BsStars,
       display: FEATURE_FLAGS.STUDY_HELPER,
@@ -174,41 +113,7 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
       path: "/study-helper",
       active: location.pathname.startsWith("/study-helper"),
     },
-    {
-      icon: FaBriefcase,
-      display: FEATURE_FLAGS.CAREER_HUB,
-      label: "Career Hub",
-      path: "/career-hub",
-      active: location.pathname.startsWith("/career-hub"),
-    },
-    {
-      icon: FaStore,
-      display: FEATURE_FLAGS.STORE,
-      label: "Student Store",
-      path: "/store",
-      active: location.pathname.startsWith("/store"),
-    },
-    {
-      icon: FaChalkboardTeacher,
-      display: FEATURE_FLAGS.TUITION,
-      label: "Tuition",
-      path: "/tuition",
-      active: location.pathname.startsWith("/tuition"),
-    },
-    {
-      icon: FaVideo,
-      display: FEATURE_FLAGS.VIDEOS,
-      label: "Videos",
-      path: "/videos",
-      active: location.pathname.startsWith("/videos"),
-    },
-    {
-      icon: CgMoreVerticalO,
-      display: FEATURE_FLAGS.MORE,
-      label: "More",
-      path: "/more",
-      active: location.pathname.startsWith("/more"),
-    },
+
     {
       icon: FaCog,
       display: FEATURE_FLAGS.SETTINGS,
@@ -334,13 +239,6 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
                   />
                   <span>{item.label}</span>
                 </div>
-                {item.badge && (
-                  <span
-                    className={`rounded-full bg-red-500 px-2 py-1 text-xs font-bold text-white`}
-                  >
-                    {item.badge}
-                  </span>
-                )}
               </NavLink>
             );
           })}
