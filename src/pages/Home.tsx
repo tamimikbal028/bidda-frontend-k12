@@ -1,56 +1,26 @@
-import { LoadingSkeleton } from "../components/Home";
-import LoadMoreButton from "../components/Shared/Action Buttons/LoadMoreButton";
-
 const Home = () => {
-  // TODO: Replace with API call to fetch posts
-  const loading = false;
-
-  // TODO: Fetch friends list from API for filtering
-
-  if (loading) {
-    return (
-      <>
-        {/* Loading skeleton */}
-        <LoadingSkeleton />
-      </>
-    );
-  }
-
   return (
-    <>
-      {/* TODO: Add DailyXPClaim component when gaming features are connected */}
-
-      {/* Create Post Section - Shared Component */}
-      {/*user?._id && (
-        <CreatePost
-          key={isCreatingPost ? "submitting" : "idle"} // Simple hack: re-mount or re-render? No, this might cause focus loss.
-          // Better: Use a dedicated key state that increments on success.
-          // But for now, let's stick to just passing props.
-          targetModel={POST_TARGET_MODELS.USER}
-          targetId={user._id}
-          placeholder={`What's on your mind, ${user.fullName.split(" ")[0]}?`}
-          showPoll={true}
-          onSubmit={handleCreatePost}
-          isPending={isCreatingPost}
-        />
-      )*/}
-
-      {/* Feed Header */}
-      <h2 className="text-xl font-semibold text-gray-900">Latest Posts</h2>
-
-      {/* Posts List */}
-      {/* TODO: Filter posts by friends/allowed users when API is connected */}
-      <div className="space-y-5">Pore home niye kaj kora hobe, ekhn na</div>
-
-      {/* Load More Button */}
-      {/* TODO: Implement pagination with API */}
-      <div className="flex justify-center">
-        <LoadMoreButton
-          onClick={() => console.log("TODO: Load more posts from API")}
-          isLoading={false}
-        />
+    <div className="flex flex-col items-center justify-center space-y-6 py-12 text-center">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Welcome to K12 Dashboard
+        </h1>
+        <p className="mx-auto max-w-lg text-lg text-gray-600">
+          Your personal space for academic excellence, gaming competitions, and smarter learning.
+        </p>
       </div>
-    </>
+
+      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-blue-100 bg-blue-50/50 p-6 shadow-sm transition hover:shadow-md">
+          <h3 className="mb-2 text-lg font-bold text-blue-900">Gaming & Competition</h3>
+          <p className="text-sm text-blue-700">Participate in school-wide gaming tournaments and win exciting rewards.</p>
+        </div>
+        <div className="rounded-2xl border border-purple-100 bg-purple-50/50 p-6 shadow-sm transition hover:shadow-md">
+          <h3 className="mb-2 text-lg font-bold text-purple-900">Study Helper AI</h3>
+          <p className="text-sm text-purple-700">Get instant help with your complex homework and study topics using our AI assistant.</p>
+        </div>
+      </div>
+    </div>
   );
 };
 

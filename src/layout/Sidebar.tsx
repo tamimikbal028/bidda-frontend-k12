@@ -1,18 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
   FaCog,
-  FaComments,
   FaTrophy,
-  FaUniversity,
-  FaGraduationCap,
-  FaChevronDown,
-  FaChevronUp,
-  FaCompass,
+  FaComments,
   FaTimes,
 } from "react-icons/fa";
 import { BsStars } from "react-icons/bs";
-import authHooks from "../hooks/useAuth";
-import { useState } from "react";
 import { FEATURE_FLAGS } from "../constants";
 
 interface SidebarProps {
@@ -22,15 +15,6 @@ interface SidebarProps {
 
 const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
   const location = useLocation();
-  const { meta } = authHooks.useUser();
-
-  // State for expandable menus
-  const [isInstitutionOpen, setIsInstitutionOpen] = useState(false);
-  const [isDepartmentOpen, setIsDepartmentOpen] = useState(false);
-
-  // Checks for memberships
-  const institution = meta?.institution;
-  const department = meta?.department;
 
   const navigationItems = [
     {
@@ -48,68 +32,12 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
       active: location.pathname.startsWith("/open-discussion"),
     },
     {
-      icon: FaUniversity,
-      display: FEATURE_FLAGS.INSTITUTIONS,
-      label: "Institutions",
-      isExpandable: true,
-      isOpen: isInstitutionOpen,
-      setOpen: setIsInstitutionOpen,
-      subItems: [
-        {
-          label: "My Institution",
-          path: institution
-            ? `/institutions/${institution._id}`
-            : "/my-institution",
-          icon: FaUniversity,
-          active:
-            institution &&
-            location.pathname.startsWith(`/institutions/${institution._id}`),
-        },
-        {
-          label: "Discovery",
-          path: "/institutions",
-          icon: FaCompass,
-          active: location.pathname === "/institutions",
-        },
-      ],
-      active: location.pathname.startsWith("/institutions"),
-    },
-    {
-      icon: FaGraduationCap,
-      display: FEATURE_FLAGS.DEPARTMENTS,
-      label: "Departments",
-      isExpandable: true,
-      isOpen: isDepartmentOpen,
-      setOpen: setIsDepartmentOpen,
-      subItems: [
-        {
-          label: "My Department",
-          path: department
-            ? `/departments/${department._id}`
-            : "/my-department",
-          icon: FaGraduationCap,
-          active:
-            department &&
-            location.pathname.startsWith(`/departments/${department._id}`),
-        },
-        {
-          label: "Discovery",
-          path: "/departments",
-          icon: FaCompass,
-          active: location.pathname === "/departments",
-        },
-      ],
-      active: location.pathname.startsWith("/departments"),
-    },
-
-    {
       icon: BsStars,
       display: FEATURE_FLAGS.STUDY_HELPER,
       label: "Study Helper",
       path: "/study-helper",
       active: location.pathname.startsWith("/study-helper"),
     },
-
     {
       icon: FaCog,
       display: FEATURE_FLAGS.SETTINGS,
@@ -159,59 +87,6 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
           {navigationItems.map((item, index) => {
             if (!item.display) {
               return null;
-            }
-
-            if (item.isExpandable) {
-              return (
-                <div key={index} className="space-y-1">
-                  <button
-                    onClick={() => item.setOpen(!item.isOpen)}
-                    className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all duration-200 ${
-                      item.active
-                        ? "bg-blue-50 text-blue-600"
-                        : "text-gray-700 hover:bg-blue-100 hover:text-gray-900"
-                    }`}
-                  >
-                    <div className="flex items-center">
-                      <item.icon
-                        className={`mr-3 h-5 w-5 transition-colors ${
-                          item.active ? "text-blue-600" : "text-gray-500"
-                        }`}
-                      />
-                      <span>{item.label}</span>
-                    </div>
-                    {item.isOpen ? (
-                      <FaChevronUp className="h-3 w-3" />
-                    ) : (
-                      <FaChevronDown className="h-3 w-3" />
-                    )}
-                  </button>
-
-                  {item.isOpen && item.subItems && (
-                    <div className="ml-4 space-y-1 border-l-2 border-gray-100 pl-4">
-                      {item.subItems.map((sub, subIdx) => (
-                        <NavLink
-                          key={subIdx}
-                          to={sub.path}
-                          onClick={isMobile && onClose ? onClose : undefined}
-                          className={`flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
-                            sub.active
-                              ? "bg-blue-50 font-semibold text-blue-600"
-                              : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                          }`}
-                        >
-                          <sub.icon
-                            className={`mr-3 h-4 w-4 ${
-                              sub.active ? "text-blue-600" : "text-gray-400"
-                            }`}
-                          />
-                          <span>{sub.label}</span>
-                        </NavLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
             }
 
             return (

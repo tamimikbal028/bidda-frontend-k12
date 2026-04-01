@@ -3,7 +3,5 @@ export * from "./pagination";
 export * from "./common";
 export * from "./user";
 export * from "./institution";
-export * from "./post";
 export * from "./department";
-export * from "./follow";
 export * from "./queryKeys";

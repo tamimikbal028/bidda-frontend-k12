@@ -16,12 +16,7 @@ export type Religion = (typeof RELIGIONS)[keyof typeof RELIGIONS];
 export type TeacherRank = (typeof TEACHER_RANKS)[keyof typeof TEACHER_RANKS];
 
 
-export interface SocialLinks {
-  linkedin?: string;
-  github?: string;
-  website?: string;
-  facebook?: string;
-}
+
 
 
 
@@ -49,20 +44,12 @@ export interface TeacherAcademicInfo {
 export interface ProfileHeaderUser {
   _id: string;
 
-  // Stats
-  postsCount: number;
-  connectionsCount: number;
-  followersCount: number;
-  followingCount: number;
-  publicFilesCount: number;
-
   // Basic Info
   fullName: string;
   userName: string;
   avatar: string | null;
   email: string;
   coverImage: string | null;
-  bio?: string;
   userType: UserType;
   isInstitutionalEmail: boolean;
   accountStatus: AccountStatus;
@@ -85,21 +72,6 @@ export interface User {
   // Profile
   avatar: string | null;
   coverImage: string | null;
-  bio?: string;
-  gender?: Gender;
-  religion?: Religion;
-
-  // Stats
-  postsCount: number;
-  connectionsCount: number;
-  followersCount: number;
-  followingCount: number;
-  publicFilesCount: number;
-
-  // Social & Skills
-  socialLinks?: SocialLinks;
-  skills?: string[];
-  interests?: string[];
 
   // Institutional
   userType: UserType;
@@ -108,11 +80,7 @@ export interface User {
   // Status & Settings
   accountStatus: AccountStatus;
   restrictions: {
-    isPostBlocked: boolean;
-    isCommentBlocked: boolean;
     isMessageBlocked: boolean;
-    postRestriction?: { reason: string };
-    commentRestriction?: { reason: string };
     messageRestriction?: { reason: string };
   };
 
@@ -141,23 +109,15 @@ export interface AuthUser {
   fullName: string;
   userName: string;
   avatar: string | null;
-  userType: UserType;
-  isInstitutionalEmail: boolean;
   accountStatus: AccountStatus;
   restrictions: {
-    isPostBlocked: boolean;
-    isCommentBlocked: boolean;
     isMessageBlocked: boolean;
-    postRestriction?: { reason: string };
-    commentRestriction?: { reason: string };
     messageRestriction?: { reason: string };
   };
   passwordChangedAt?: string;
 }
 
 export interface UserMeta {
-  institution: { _id: string; name: string } | null;
-  department: { _id: string; name: string } | null;
   isTeacher: boolean;
   isAppAdmin: boolean;
 }
