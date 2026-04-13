@@ -10,6 +10,10 @@ export default defineConfig({
     port: 4000,
     strictPort: true,
     host: true,
+    forwardConsole: true,
+  },
+  resolve: {
+    tsconfigPaths: true,
   },
   build: {
     rollupOptions: {
@@ -28,3 +32,4 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
   },
 });
+
