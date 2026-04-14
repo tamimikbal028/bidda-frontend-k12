@@ -1,4 +1,4 @@
-import DailyXPClaim from "./Dashboard/DailyXPClaim";
+import DailyXPClaim from "@/components/Gaming/Dashboard/DailyXPClaim";
 
 const Dashboard = () => {
   return (

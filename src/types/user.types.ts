@@ -1,4 +1,4 @@
-import type { ApiResponse } from "./common.types";
+import type { ApiResponse } from "@/types/common.types";
 import {
   USER_TYPES,
   GENDERS,

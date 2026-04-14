@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import type { Location } from "react-router-dom";
-import authHooks from "../hooks/useAuth";
+import authHooks from "@/hooks/useAuth";
 
 interface Props {
   children: ReactNode;

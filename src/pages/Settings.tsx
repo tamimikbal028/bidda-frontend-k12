@@ -1,5 +1,5 @@
 import { FaSignOutAlt } from "react-icons/fa";
-import authHooks from "../hooks/useAuth";
+import authHooks from "@/hooks/useAuth";
 
 const Settings = () => {
   const { mutate: logout, isPending: isLoggingOut } = authHooks.useLogout();

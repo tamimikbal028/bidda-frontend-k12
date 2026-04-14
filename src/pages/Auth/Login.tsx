@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import authHooks from "../../hooks/useAuth";
+import authHooks from "@/hooks/useAuth";
 
 // Zod Schema for Login
 const loginSchema = z.object({

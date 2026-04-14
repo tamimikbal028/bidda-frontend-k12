@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { FaEnvelope, FaHome, FaBullhorn } from "react-icons/fa";
-import authHooks from "../hooks/useAuth";
-import { USER_TYPES } from "../constants";
+import authHooks from "@/hooks/useAuth";
+import { USER_TYPES } from "@/constants";
 
 const Navbar = () => {
   const { user, isAuthenticated } = authHooks.useUser();

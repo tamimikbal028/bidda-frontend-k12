@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import MobileNav from "./layout/MobileNav";
-import Sidebar from "./layout/Sidebar";
-import SidebarRight from "./layout/SidebarRight";
-import MainContent from "./layout/MainContent";
-import authHooks from "./hooks/useAuth";
-import { AUTH_KEYS } from "./constants";
-import AuthLoading from "./components/Shared/AuthLoading";
+import MobileNav from "@/layout/MobileNav";
+import Sidebar from "@/layout/Sidebar";
+import SidebarRight from "@/layout/SidebarRight";
+import MainContent from "@/layout/MainContent";
+import authHooks from "@/hooks/useAuth";
+import { AUTH_KEYS } from "@/constants";
+import AuthLoading from "@/components/Shared/AuthLoading";
 
 const App = () => {
   const queryClient = useQueryClient();

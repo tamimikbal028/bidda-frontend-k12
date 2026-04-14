@@ -1,5 +1,5 @@
-import followHooks from "../../../hooks/common/useFollow";
-import { FOLLOW_TARGET_MODELS } from "../../../constants";
+import followHooks from "@/hooks/common/useFollow";
+import { FOLLOW_TARGET_MODELS } from "@/constants";
 
 interface FollowButtonProps {
   targetId: string;

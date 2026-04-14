@@ -6,7 +6,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { BsStars } from "react-icons/bs";
-import { FEATURE_FLAGS } from "../constants";
+import { FEATURE_FLAGS } from "@/constants";
 
 interface SidebarProps {
   isMobile?: boolean;

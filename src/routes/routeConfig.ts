@@ -1,8 +1,8 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from "react";
-import Home from "../pages/Home";
-import Login from "../pages/Auth/Login";
-import Register from "../pages/Auth/Register";
-import { FEATURE_FLAGS } from "../constants/featureFlags";
+import Home from "@/pages/Home";
+import Login from "@/pages/Auth/Login";
+import Register from "@/pages/Auth/Register";
+import { FEATURE_FLAGS } from "@/constants/featureFlags";
 
 // Enhanced Route configuration - Industry standard approach
 interface RouteConfig {

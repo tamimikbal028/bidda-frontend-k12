@@ -1,6 +1,6 @@
 import { toast } from "sonner";
 import type { AxiosError } from "axios";
-import type { ApiError } from "../types";
+import type { ApiError } from "@/types";
 
 // Overload 1: Higher-Order Function usage
 export function handleMutationError(

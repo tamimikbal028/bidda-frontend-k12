@@ -9,7 +9,7 @@
  */
 
 import Swal from "sweetalert2";
-import { inputRename, confirmDelete } from "./sweetAlert";
+import { inputRename, confirmDelete } from "@/utils/sweetAlert";
 
 // ============================================
 // TYPES

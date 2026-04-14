@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { FaHome, FaTrophy, FaComments, FaCog } from "react-icons/fa";
 import { BsStars } from "react-icons/bs";
-import { FEATURE_FLAGS } from "../constants";
+import { FEATURE_FLAGS } from "@/constants";
 
 const MobileNav = () => {
   const location = useLocation();

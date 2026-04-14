@@ -1,8 +1,8 @@
 import { Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import ProtectedRoute from "../routes/ProtectedRoute";
-import { routes, getRouteByPath } from "../routes/routeConfig";
-import PageLoader from "../pages/Fallbacks/PageLoader";
+import ProtectedRoute from "@/routes/ProtectedRoute";
+import { routes, getRouteByPath } from "@/routes/routeConfig";
+import PageLoader from "@/pages/Fallbacks/PageLoader";
 // Idle prefetch logic removed
 
 const MainContent = () => {

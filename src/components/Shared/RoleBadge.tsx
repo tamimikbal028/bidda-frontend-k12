@@ -1,4 +1,4 @@
-import { DEPARTMENT_ROLES } from "../../constants/department";
+import { DEPARTMENT_ROLES } from "@/constants/department";
 
 interface RoleBadgeProps {
   role?: string;

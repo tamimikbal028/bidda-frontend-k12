@@ -1,2 +1,2 @@
-export * from "./common.types";
-export * from "./user.types";
+export * from "@/types/common.types";
+export * from "@/types/user.types";

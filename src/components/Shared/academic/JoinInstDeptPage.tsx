@@ -10,12 +10,12 @@ import {
   FaIdCard,
   FaChalkboardTeacher,
 } from "react-icons/fa";
-import profileHooks from "../../../hooks/useProfile";
-import { TEACHER_RANKS } from "../../../constants";
+import profileHooks from "@/hooks/useProfile";
+import { TEACHER_RANKS } from "@/constants";
 import { useQuery } from "@tanstack/react-query";
-import authHooks from "../../../hooks/useAuth";
-import institutionService from "../../../services/institution.service";
-import departmentServices from "../../../services/department.service";
+import authHooks from "@/hooks/useAuth";
+import institutionService from "@/services/institution.service";
+import departmentServices from "@/services/department.service";
 
 // ====================================
 // ZOD VALIDATION SCHEMA

@@ -1,2 +1,2 @@
-export { default as LoadingSkeleton } from "./LoadingSkeleton";
+export { default as LoadingSkeleton } from "@/components/Home/LoadingSkeleton";
 

@@ -2,11 +2,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useLocation } from "react-router-dom";
 import type { Location } from "react-router-dom";
 import { toast } from "sonner";
-import authServices from "../services/auth.service";
-import type { LoginCredentials, ApiError, RegisterData } from "../types";
+import authServices from "@/services/auth.service";
+import type { LoginCredentials, ApiError, RegisterData } from "@/types";
 import type { AxiosError } from "axios";
-import { AUTH_KEYS, USER_TYPES } from "../constants";
-import { handleMutationError } from "../utils/errorHandler";
+import { AUTH_KEYS, USER_TYPES } from "@/constants";
+import { handleMutationError } from "@/utils/errorHandler";
 
 // Default query options for current user
 const currentUserQueryOptions = {

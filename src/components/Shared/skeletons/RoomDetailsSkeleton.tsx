@@ -1,4 +1,4 @@
-import RoomPostSkeleton from "./RoomPostSkeleton";
+import RoomPostSkeleton from "@/components/Shared/skeletons/RoomPostSkeleton";
 
 const RoomDetailsSkeleton = () => {
   return (

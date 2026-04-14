@@ -4,8 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import authHooks from "../../hooks/useAuth";
-import { USER_TYPES, EDUCATION_LEVELS } from "../../constants";
+import authHooks from "@/hooks/useAuth";
+import { USER_TYPES, EDUCATION_LEVELS } from "@/constants";
 
 // Zod Schema - matches with Backend validation
 const registerSchema = z.object({
