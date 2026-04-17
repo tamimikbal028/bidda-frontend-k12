@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import { FaGift, FaTrophy, FaCoins } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
-const getTimeUntilMidnightLabel = () => {
-  const now = dayjs();
-  const midnight = dayjs().endOf("day");
+const GAMING_TIME_ZONE = "Asia/Dhaka";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
-  const totalSeconds = Math.max(midnight.diff(now, "second"), 0);
+const getTimeUntilMidnightLabel = (date = new Date()) => {
+  const now = dayjs(date).tz(GAMING_TIME_ZONE);
+  const totalSeconds = Math.max(now.endOf("day").diff(now, "second"), 0);
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
@@ -70,7 +74,8 @@ const DailyXPClaim = () => {
 
           {canClaim && (
             <p className="text-sm font-medium text-orange-700">
-              Claim expires at midnight ({timeUntilMidnight} remaining)
+              Claim expires at midnight Dhaka time ({timeUntilMidnight}{" "}
+              remaining)
             </p>
           )}
         </div>
@@ -97,7 +102,7 @@ const DailyXPClaim = () => {
             </p>
             <div className="mt-2 flex items-center justify-center gap-2 text-xs font-medium text-gray-600">
               <span>
-                Next claim available in:{" "}
+                Next claim available in Dhaka time:{" "}
                 <span className="font-bold text-blue-600">
                   {timeUntilMidnight}
                 </span>
