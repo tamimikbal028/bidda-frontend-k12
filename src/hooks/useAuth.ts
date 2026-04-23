@@ -39,9 +39,7 @@ const useUser = () => {
     meta: authData?.meta ?? null,
     isAuthenticated: Boolean(authData?.user),
     isCheckingAuth: isLoading,
-    isAppAdmin:
-      authData?.user?.userType === USER_TYPES.OWNER ||
-      authData?.user?.userType === USER_TYPES.ADMIN,
+    isAppAdmin: authData?.user?.userType === USER_TYPES.ADMIN,
   };
 };
 

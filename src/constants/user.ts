@@ -2,7 +2,7 @@ export const USER_TYPES = {
   STUDENT: "STUDENT",
   TEACHER: "TEACHER",
   ADMIN: "ADMIN",
-  OWNER: "OWNER",
+  MODERATOR: "MODERATOR",
 };
 
 export const TEACHER_RANKS = {
